@@ -191,7 +191,7 @@ Para esto vamos a definir el proceso por pasos:
 
    
 
-​       ![common button imagen](/home/javierlopez/Coding/css-modules-talk/images/common-button.png)
+​       ![common button imagen](images/common-button.png)
 
 
 
@@ -207,7 +207,7 @@ Para esto vamos a definir el proceso por pasos:
 
 
 
-​       ![primary button imagen](/home/javierlopez/Coding/css-modules-talk/images/primary-button.png)
+​       ![primary button imagen](images/primary-button.png)
 
 
 
@@ -222,7 +222,7 @@ Para esto vamos a definir el proceso por pasos:
 
    
 
-​       ![secondary button imagen](/home/javierlopez/Coding/css-modules-talk/images/secondary-button.png)
+​       ![secondary button imagen](images/secondary-button.png)
 
 
 
@@ -238,5 +238,5 @@ Para esto vamos a definir el proceso por pasos:
 
    
 
-​       ![outline button imagen](/home/javierlopez/Coding/css-modules-talk/images/outline-button.png)
+​       ![outline button imagen](images/outline-button.png)
 
