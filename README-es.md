@@ -10,7 +10,7 @@ Según el [repositorio](https://github.com/css-modules/css-modules), *CSS module
 
 ​     **Archivos CSS en los que los nombres de las clases y los nombres de las animaciones tienen un alcance local de forma predeterminada.**
 
-Por lo tanto, *CSS modules* no son una especificación oficial ni una implementación en el navegador, sino más bien un proceso en un paso de compilación (con la ayuda de Webpack , Gulp, Rollup, Parcel o Browserify) que cambia los nombres de clase y los selectores que se van a definir.
+Por lo tanto, *CSS modules* no es una especificación oficial ni una implementación en el navegador, sino más bien un proceso en un paso de compilación (con la ayuda de Webpack , Gulp, Rollup, Parcel o Browserify) que cambia los nombres de clase y los selectores que se van a definir.
 
 
 
@@ -78,27 +78,42 @@ Y el código generado sería:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## ¿Qué problema resuelve?
 
 
 
+ ### "El scope global en CSS"
 
+El escope global en CSS 
+
+
+
+* ¿Alguna vez os habéis sentido tentados por la falta de tiempo o recursos para simplemente escribir CSS lo más rápido posible, sin considerar qué más podría afectar? 
+* ¿Alguna vez has añadido reglas en la parte inferior de una hoja de estilo, con la intención de organizarse pero nunca hacerlo? 
+* ¿Alguna vez te has topado con estilos en los que no estabas completamente seguro de lo que hacían o si estaban siendo utilizados? 
+* ¿Alguna vez te has preguntado si podrías deshacerte de algunos estilos sin romper algo? 
+* ¿Alguna vez os preguntsteis si los estilos dependían de otras estilos? 
+* ¿Algun vez sobreescribisteis estilos en otra parte?
+
+
+
+Con los módulos CSS y el concepto de ámbito local por defecto, se evitan estos problema.
+
+
+
+## ¿Cómo lo resuelve?
+
+
+
+Con *CSS modules*, es una garantía de que todos los estilos de un componente: 
+
+- Viven en un solo lugar
+
+- Solo se aplican a ese componente y nada más. 
+
+- Inyección de dependencias.
+
+  
 
 ## ¿Cómo funciona?
 
@@ -149,4 +164,79 @@ Es posible componer múltiples clases con composiciones: `button buttonPrimary;`
 
 
 ## Ejemplo a maquetar
+
+
+
+Vamos  a maquetar con *CSS modules* tres componentes  `btnPrimary`, `btnSecondary` `btnOutline`
+
+
+
+Para esto vamos a definir el proceso por pasos:
+
+
+
+1. Identificar definir e implementar las variables de tema en un archivo theme.css
+
+2. Identificar las propiedades comunes entre todos los componentes e implementar sus reglas de estilo en un cuatro componente commun a todos `btnBase` que constará de los archivos `btnBase.js` y `btnBase.css`
+
+   
+
+   Propiedades a conocer:
+
+   * `padding: 20px 60px` 
+
+   * `font-size: 16px`
+
+   * `font-weight: 600`
+
+   
+
+​       ![common button imagen](/home/javierlopez/Coding/css-modules-talk/images/common-button.png)
+
+
+
+3. Implementar un componente `btnPrimary`  en el que Compondremos las reglas definias para el componente `btnBase` añadiendo sus propiedades propias. el componente `btnPrimary` constará de los ficheros `btnPrimary.css` y `btnPrimary.js`
+
+   
+
+   Propiedades a conocer:
+
+   - `color: red` 
+
+   - `background: pink`
+
+
+
+​       ![primary button imagen](/home/javierlopez/Coding/css-modules-talk/images/primary-button.png)
+
+
+
+4. Implementar un componente `btnSecondary`  en el que Compondremos las reglas definias para el componente `btnBase` añadiendo sus propiedades propias. el componente `btnSecondary` constará de los ficheros `btnSecondary.css` y `btnSecondary.js`
+
+   
+
+   Propiedades a conocer:
+
+   - `color: white  `
+   - `background: #00aaff`
+
+   
+
+​       ![secondary button imagen](/home/javierlopez/Coding/css-modules-talk/images/secondary-button.png)
+
+
+
+5. Implementar un componente `btnOutline`  en el que Compondremos las reglas definias para el componente `btnBase` añadiendo sus propiedades propias. el componente `btnOutline` constará de los ficheros `btnOutline.css` y `btnOutline.js`
+
+   
+
+   Propiedades a conocer:
+
+   - `color: #00aaff` 
+   - `boder: 3px solid #00aaff`
+   - `background: transparent`
+
+   
+
+​       ![outline button imagen](/home/javierlopez/Coding/css-modules-talk/images/outline-button.png)
 
