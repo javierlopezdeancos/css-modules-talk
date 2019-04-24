@@ -82,9 +82,7 @@ Y el código generado sería:
 
 
 
- ### "El scope global en CSS"
-
-El escope global en CSS 
+ ### El scope global en css
 
 
 
@@ -119,9 +117,131 @@ Con *CSS modules*, es una garantía de que todos los estilos de un componente:
 
 
 
+Para utilizar CSS modules, necesitamos *importar los estilos*. Este proceso de importación se hace **a través de loaders javascript**, escritos para cada determinado bundler system (webpack, parcel, rollup, gulp etc...) Este proceso genera un namespace del tipo *filename_class_hash* con todas las clases importadas. Al igual que con las importaciones normales, css-loader inyectará también su hoja de estilo con las reglas para las clases construidas con namespace en el documento. La gran diferencia aquí es que la importación nos devuelve un objeto diccionario  de nombres de *clases locales* a sus versiones con namespace.
+
+
+
+### Ejemplo
+
+`foo.css`
+
+```css
+.foo {
+    padding: 10px;
+
+    header.bar {
+        color: black;
+        font-size: 200%;
+    }
+}
+```
+
+`foo.js`
+
+```javascript
+import style from './style.less';
+
+export default class Foo extends Component {  
+    render() {
+        return (
+            <div class={ style.foo }>
+                <header class={ style.bar }>Sup</header>
+                etc
+            </div>
+        );
+    }
+}
+```
+
+`console`
+
+```shell
+console.log(style);  
+{ foo:"foo_foo_abcde", bar:"foo_bar_abcde" }
+```
+
+`real styles injected in bundle.css`
+
+```css
+.foo_foo_abcde {
+    padding: 10px;
+}
+
+.foo_bar_abcde {
+	color: black;
+    font-size: 200%;
+}
+```
+
 
 
 ## Composición vs Herencia
+
+
+
+### Herencia
+
+
+
+> **Un objeto o clase se basa en otro objeto o clase, usando la misma implementación o comportamiento**
+
+
+
+Esto es un mecanismo para la reutilización de código para permitirnos extensiones independientes del software original mediante clases públicas e interfaces.
+
+
+
+Ejemplo:
+
+
+
+`css`
+
+```css
+.button {
+	border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.red {
+   background: red;
+   color: white;
+}
+
+.blue {
+   background: blue;
+   color: white;
+}
+```
+
+
+
+`html`
+
+```html
+<button class="button">
+    button
+</button>
+
+<button class="button red">
+    button red 
+</button>
+
+<button class="button blue">
+    button blue
+</button>
+```
+
+
+
+En el ejemplo hemos compuesto tres objetos el segundo y tercero están usando para ello la implementación del primero del primero, es decir, su implementaión no es independiente a ésta.
+
+
+
+En principio parece que el lenguage css básado en la herencia de cascada de estilos está diseñado para usar  este tipo de patrón, pero vamos a ver que con la llegada de los preprocesadores y herramientas como css modules o styles in js eso ya no es una limitación.
 
 
 
@@ -129,29 +249,105 @@ Con *CSS modules*, es una garantía de que todos los estilos de un componente:
 
 
 
+> **Composición quiere decir que tenemos una instancia de una clase que contiene instancias de otras clases que implementan las funciones deseadas.**
+
+
+
+Estamos delegando las tareas que nos mandan a hacer a aquella pieza de código que sabe hacerlas. El código que ejecuta esa tarea concreta está sólo en esa pieza y todos delegan el ella para ejecutar dicha tarea. Por lo tanto estamos reutilizando código de nuevo.
+
+
+
+Veámos como se implemena la composición con diferentes opciones:
+
+
+
 #### CSS Modules
 
-
+`source`
 
 ```css
 .button {
-  color: green;
-  background: red;
+ 	border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
 .buttonPrimary {
-  composes: button;
-  color: yellow;
+ 	composes: button;
+    background: red;
+	color: white;
+}
+
+.buttonSecondary {
+ 	composes: button;
+    background: blue;
+	color: white;
 }
 ```
 
-Puede haber múltiples reglas de composición, pero las reglas de composición deben estar antes que otras reglas. La ampliación funciona solo para los selectores de ámbito local y solo si el selector es un solo nombre de clase. Cuando un nombre de clase compone otro nombre de clase, el Módulo CSS exporta ambos nombres de clase para la clase local. Esto puede agregar hasta varios nombres de clase.
-
-Es posible componer múltiples clases con composiciones: `button buttonPrimary;`.
 
 
+`output`   
 
-## Preprocesadores
+```css
+.button {
+  	border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.buttonPrimary {
+    border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+  	background: red;
+  	color: white;
+}
+
+.buttonSecondary {
+    border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+  	background: blue;
+  	color: white;
+}
+```
+
+
+
+Puede haber múltiples reglas de composición, pero las reglas de composición deben estar antes que otras reglas. 
+
+En el ejemplo hemos compuesto tres objetos cada uno con su implementación independiente, la del segundo y tercero con una instancia del primero.
+
+
+
+#### Preprocesadores
+
+
+
+##### Sass
+
+
+
+
+
+
+
+
+
+##### Less
+
+
+
+
 
 
 
