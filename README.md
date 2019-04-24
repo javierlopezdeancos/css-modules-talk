@@ -24,7 +24,7 @@ Por lo tanto, *CSS modules* no es una especificación oficial ni una implementac
 
 ```css
 .button {
-	text-transform: uppercase;
+    text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
     border-radius: 0;
