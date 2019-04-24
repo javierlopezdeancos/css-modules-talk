@@ -60,11 +60,18 @@ Y el código generado sería:
 </button>
 ```
 
-`css`
+
+
+`output css`
 
 ```css
 ._styles__button_309571057 {
-  background-color: red;
+    text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 0;
+	padding: 20px 60px;
+	border: none;
 }
 ```
 
@@ -168,7 +175,7 @@ console.log(style);
 }
 
 .foo_bar_abcde {
-	color: black;
+    color: black;
     font-size: 200%;
 }
 ```
@@ -199,7 +206,7 @@ Ejemplo:
 
 ```css
 .button {
-	border-radius: 0;
+    border-radius: 0;
     height: 50px;
     padding: 8px 16px;
     font-size: 16px;
@@ -283,7 +290,7 @@ Veámos como se implemena la composición con diferentes opciones:
 .buttonSecondary {
  	composes: button;
     background: blue;
-	color: white;
+    color: white;
 }
 ```
 
@@ -293,7 +300,7 @@ Veámos como se implemena la composición con diferentes opciones:
 
 ```css
 .button {
-  	border-radius: 0;
+    border-radius: 0;
     height: 50px;
     padding: 8px 16px;
     font-size: 16px;
@@ -306,8 +313,8 @@ Veámos como se implemena la composición con diferentes opciones:
     padding: 8px 16px;
     font-size: 16px;
     text-transform: uppercase;
-  	background: red;
-  	color: white;
+    background: red;
+    color: white;
 }
 
 .buttonSecondary {
@@ -316,8 +323,8 @@ Veámos como se implemena la composición con diferentes opciones:
     padding: 8px 16px;
     font-size: 16px;
     text-transform: uppercase;
-  	background: blue;
-  	color: white;
+    background: blue;
+    color: white;
 }
 ```
 
