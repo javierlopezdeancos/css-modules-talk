@@ -68,10 +68,10 @@ Y el código generado sería:
 ._styles__button_309571057 {
     text-transform: uppercase;
     font-size: 16px;
-	font-weight: 600;
-	border-radius: 0;
-	padding: 20px 60px;
-	border: none;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 20px 60px;
+    border: none;
 }
 ```
 
