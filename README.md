@@ -24,12 +24,12 @@ Por lo tanto, *CSS modules* no es una especificación oficial ni una implementac
 
 ```css
 .button {
-  	text-transform: uppercase;
-	font-size: 16px;
-	font-weight: 600;
-	border-radius: 0;
-	padding: 20px 60px;
-	border: none;
+	text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 20px 60px;
+    border: none;
 }
 ```
 
@@ -274,7 +274,7 @@ Veámos como se implemena la composición con diferentes opciones:
 
 ```css
 .button {
- 	border-radius: 0;
+    border-radius: 0;
     height: 50px;
     padding: 8px 16px;
     font-size: 16px;
@@ -282,13 +282,13 @@ Veámos como se implemena la composición con diferentes opciones:
 }
 
 .buttonPrimary {
- 	composes: button;
+    composes: button;
     background: red;
-	color: white;
+    color: white;
 }
 
 .buttonSecondary {
- 	composes: button;
+    composes: button;
     background: blue;
     color: white;
 }
