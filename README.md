@@ -565,11 +565,10 @@ Para esto vamos a definir el proceso por pasos:
 
    Propiedades a conocer:
 
-   * `padding: 20px 60px` 
-* `font-size: 16px`
-   * `font-weight: 600`
-* `background: #dedede`
-   
+   * padding: 20px 60px 
+   * font-size: 16px
+   * font-weight: 600
+   * background: #dedede
 
 
 ​       ![common button imagen](images/common-button.png)
@@ -582,9 +581,9 @@ Para esto vamos a definir el proceso por pasos:
 
    Propiedades a conocer:
 
-   - `color: red` 
+   - color: red 
 
-   - `background: pink`
+   - background: pink
 
 
 
@@ -598,8 +597,8 @@ Para esto vamos a definir el proceso por pasos:
 
    Propiedades a conocer:
 
-   - `color: white  `
-   - `background: #00aaff`
+   - color: white 
+   - background: #00aaff
 
    
 
@@ -613,9 +612,9 @@ Para esto vamos a definir el proceso por pasos:
 
    Propiedades a conocer:
 
-   - `color: #00aaff` 
-   - `boder: 2px solid #00aaff`
-   - `background: transparent`
+   - color: #00aaff 
+   - boder: 2px solid #00aaff
+   - background: transparent
 
    
 
