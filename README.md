@@ -566,12 +566,11 @@ Para esto vamos a definir el proceso por pasos:
    Propiedades a conocer:
 
    * `padding: 20px 60px` 
-
-   * `font-size: 16px`
-
+* `font-size: 16px`
    * `font-weight: 600`
-
+* `background: #dedede`
    
+
 
 ​       ![common button imagen](images/common-button.png)
 
@@ -615,7 +614,7 @@ Para esto vamos a definir el proceso por pasos:
    Propiedades a conocer:
 
    - `color: #00aaff` 
-   - `boder: 3px solid #00aaff`
+   - `boder: 2px solid #00aaff`
    - `background: transparent`
 
    
