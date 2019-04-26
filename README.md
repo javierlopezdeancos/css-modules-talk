@@ -299,7 +299,7 @@ Veámos como se implemena la composición con diferentes opciones:
 `output`   
 
 ```css
-.button {
+.file_button_hash {
     border-radius: 0;
     height: 50px;
     padding: 8px 16px;
@@ -307,7 +307,7 @@ Veámos como se implemena la composición con diferentes opciones:
     text-transform: uppercase;
 }
 
-.buttonPrimary {
+.file_buttonPrimary_hash {
     border-radius: 0;
     height: 50px;
     padding: 8px 16px;
@@ -317,7 +317,7 @@ Veámos como se implemena la composición con diferentes opciones:
     color: white;
 }
 
-.buttonSecondary {
+.file_buttonSecondary_hash {
     border-radius: 0;
     height: 50px;
     padding: 8px 16px;
@@ -344,6 +344,126 @@ En el ejemplo hemos compuesto tres objetos cada uno con su implementación indep
 
 
 
+###### mixins
+
+`scss`
+
+```scss
+@mixin button($textColor, $backgroundColor) {
+    border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+    @if $textColor {
+        color: $textColor;
+    } 
+    @else if $backgroundColor {
+      background: $backgroundColor;
+    } @else {
+        display: block;
+    }
+}
+
+.button {
+    @include button(null, null);
+}
+
+.buttonPrimary {
+  @include button(white, red);
+}
+
+.buttonSecondary {
+   @include button(white, blue);
+}
+```
+
+
+
+`output`
+
+```css
+.file_button_hash {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.file_buttonPrimary_hash {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.file_buttonSecondary_hash {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+}
+```
+
+
+
+###### extends
+
+`scss`
+
+```scss
+.button {
+    border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.buttonPrimary {
+  @extend .button;
+  color: white;
+  background: red;
+}
+
+.buttonSecondary {
+  @extend .button;
+  color: white;
+  background: blue;
+}
+```
+
+
+
+`css`
+
+```css
+.file_button_hash, .file_buttonSecondary_hash, .file_buttonPrimary_hash {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.file_buttonPrimary_hash {
+  color: white;
+  background: red;
+}
+
+.file_buttonSecondary_hash {
+  color: white;
+  background: blue;
+}
+```
+
 
 
 
@@ -354,7 +474,66 @@ En el ejemplo hemos compuesto tres objetos cada uno con su implementación indep
 
 
 
+###### mixins
 
+
+
+`less`
+
+```less
+.button {
+    border-radius: 0;
+    height: 50px;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.buttonPrimary {
+  .button();
+  color: white;
+  background: red;
+  
+}
+
+.buttonSecondary {
+  .button();
+  color: white;
+  background: blue;
+}
+```
+
+
+
+`css`
+
+```css
+.button {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.buttonPrimary {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  background: red;
+}
+.buttonSecondary {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  background: blue;
+}
+```
 
 
 
