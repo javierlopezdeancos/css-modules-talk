@@ -1,0 +1,9 @@
+@import "../theme";
+@import "./button.module.scss";
+
+.button {
+  @extend .button;
+  color: $button--outline---color;
+  background: $button--outline---background;
+  border: $button---border-width solid $button--outline---color;
+}

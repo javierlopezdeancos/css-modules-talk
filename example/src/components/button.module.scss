@@ -1,0 +1,16 @@
+@import "../theme";
+
+.button {
+  border-radius: 0;
+  height: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: $button---background;
+  border: $button---border-width solid $button---background;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
