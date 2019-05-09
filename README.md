@@ -543,6 +543,24 @@ En el ejemplo hemos compuesto tres objetos cada uno con su implementación indep
 
 
 
+### Create React app
+
+* [Create react app adding css modules](https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet)
+
+* [Create react app adding sass](https://facebook.github.io/create-react-app/docs/adding-a-sass-stylesheet)
+
+
+
+### Webpack
+
+* [Loader css modules in webpack](https://github.com/css-modules/css-modules) 
+
+  
+
+### Parcel
+
+​	* [Como create react app ya tiene la funcionalidad nativa](https://parceljs.org/assets.html)
+
 
 
 ## Ejemplo a maquetar
@@ -566,9 +584,14 @@ Para esto vamos a definir el proceso por pasos:
    Propiedades a conocer:
 
    * padding: 20px 60px 
+   
    * font-size: 16px
+   
    * font-weight: 600
+   
    * background: #dedede
+   
+     
 
 
 ​       ![common button imagen](images/common-button.png)
